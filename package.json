@@ -1,0 +1,15 @@
+{
+  "name": "nit",
+  "version": "1.0.0",
+  "description": "load module into interactive repl",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rui Azevedo <ruihfazevedo@gmail.com> (http://www.r-site.net)",
+  "license": "MIT",
+  "preferGlobal": true,
+  "bin": {
+    "nit": "index.js"
+  },
+  "dependencies": ["simple-loader"]
+}
