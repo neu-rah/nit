@@ -1,6 +1,6 @@
 {
   "name": "nit-tool",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "description": "load node module into interactive repl",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,6 +18,6 @@
   },
   "dependencies": {
     "simple-loader":">=0.0.4",
-    "repl":">=0.4.0"
+    "repl":">=0.1.3"
   }
 }
