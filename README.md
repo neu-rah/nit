@@ -11,10 +11,6 @@ lets you repl inside a module environment
 
 **nit** load index.js or `cwd`.js into repl environment
 
-trigger debugging actions inside your module
-
-    var DEBUG=module.id==="repl";
-
 
 snit
 ====
