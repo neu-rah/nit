@@ -4,7 +4,8 @@ load node module in interactive repl
 you can access module variables and repl inside the module
 Rui Azevedo <ruihfazevedo@gmail.com> [www.r-site.net]
 **/
-console.log("-= nit tool =-");
+var info = require('./package.json');
+console.log("-= nit tool "+info.version+" =-");
 var cwd=process.cwd();
 var fs=require("fs");
 var target=process.argv.slice(2).join(" ");
