@@ -1,4 +1,3 @@
 #!/bin/bash
 #reload script on change, customize to watch tree or other stuff
-#supervisor ~/bin/nit
 nodemon -x nit $*
