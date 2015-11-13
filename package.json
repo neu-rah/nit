@@ -1,6 +1,6 @@
 {
   "name": "nit-tool",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "load node module into interactive repl",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +9,8 @@
   "license": "MIT",
   "preferGlobal": true,
   "bin": {
-    "nit": "index.js"
+    "nit": "index.js",
+    "snit": "snit"
   },
   "repository" :
     { "type" : "git"
