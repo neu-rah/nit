@@ -10,6 +10,11 @@ console.log("-= nit tool "+info.version+" =-");
 var cwd=process.cwd();
 var fs=require("fs");
 var target=process.argv.slice(2).join(" ");
+if(!target) {
+  if(fs.existsSync("index.js")) target="index.js"
+  else if(fs.existsSync(cwd+"/"+(cwd.split("/").pop())+".js"))
+    target=cwd+"/"+(cwd.split("/").pop())+".js"
+}
 if (target) {
   if(fs.existsSync(target)) 
     console.log("loading:",target)
@@ -17,15 +22,11 @@ if (target) {
     console.log("file not found:",target)
     process.exit();    
   }
-} else if(fs.existsSync("index.js")) console.log("loading: index.js")
-else if(fs.existsSync(cwd+"/"+(cwd.split("/").pop())+".js"))
-  console.log("loading:",cwd+"/"+(cwd.split("/").pop())+".js")
-else {
+} else {
   console.log("usage: nit «file»")
   console.log("Rui Azevedo 2015-2025")
   console.log("http://github.com/neu-rah/nit")
   console.log("tryed:");
-  if(target) console.log(target);
   console.log("index.js")
   console.log(cwd+"/"+(cwd.split("/").pop())+".js")
   process.exit();
