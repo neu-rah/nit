@@ -1,3 +1,3 @@
 #!/bin/bash
 #reload script on change, customize to watch tree or other stuff
-nodemon -x nit $*
+nodemon -I -x nit $*

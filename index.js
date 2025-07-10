@@ -5,6 +5,17 @@ you can access module variables and repl inside the module
 Rui Azevedo <ruihfazevedo@gmail.com> [www.r-site.net]
 **/
 
+var stdin = process.stdin;
+stdin.setRawMode( true );
+stdin.resume();
+// stdin.setEncoding( 'utf8' );
+// stdin.on( 'data', function( key ){
+//   // ctrl-c ( end of text )
+//   if ( key === '\u0003' ) process.exit();
+//   // process.stdout.write( key );
+// });
+
+
 var info = require('./package.json');
 console.log("-= nit tool "+info.version+" =-");
 var cwd=process.cwd();
@@ -34,7 +45,6 @@ if (target) {
 var repl = require("repl").start("#>");
 var ctx=repl.context;
 ctx.global=global;
-process.stdin.resume();
 ctx.load=require("simple-loader")(ctx);//initialize load with a context
 if (target) {
   ctx.load(target);
