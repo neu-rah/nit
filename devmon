@@ -6,7 +6,7 @@ if(!target) {
   console.log("need filename");
   process.exit(1);
 }
-console.log("Development monitorm",process.argv);
+console.log("Development monitor:",target);
 var child=null;
 function launch() {
   child=spawn("nit",[target],{
