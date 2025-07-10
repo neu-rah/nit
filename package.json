@@ -1,6 +1,6 @@
 {
   "name": "nit-tool",
-  "version": "0.0.10",
+  "version": "0.0.20",
   "description": "load node module into interactive repl",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,12 +12,12 @@
     "nit": "index.js",
     "snit": "snit"
   },
-  "repository" :
-    { "type" : "git"
-    , "url" : "https://github.com/neu-rah/nit"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neu-rah/nit"
   },
   "dependencies": {
-    "simple-loader":">=0.0.4",
-    "repl":">=0.1.3"
+    "repl": ">=0.1.3",
+    "simple-loader": "^0.0.8"
   }
 }
