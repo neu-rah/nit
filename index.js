@@ -8,12 +8,12 @@ Rui Azevedo <ruihfazevedo@gmail.com> [www.r-site.net]
 var stdin = process.stdin;
 stdin.setRawMode( true );
 stdin.resume();
-// stdin.setEncoding( 'utf8' );
-// stdin.on( 'data', function( key ){
-//   // ctrl-c ( end of text )
-//   if ( key === '\u0003' ) process.exit();
-//   // process.stdout.write( key );
-// });
+stdin.setEncoding( 'utf8' );
+stdin.on( 'data', function( key ){
+  // ctrl-c ( end of text )
+  if ( key === '\u0003' ) process.exit();
+  // process.stdout.write( key );
+});
 
 
 var info = require('./package.json');
