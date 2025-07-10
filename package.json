@@ -1,7 +1,7 @@
 {
   "name": "nit-tool",
-  "version": "1.0.3",
-  "description": "load node module into interactive repl",
+  "version": "1.1.0",
+  "description": "load node module into interactive repl, monitor and reload on file change",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -9,7 +9,8 @@
   "license": "MIT",
   "preferGlobal": true,
   "bin": {
-    "nit": "index.js",
+    "nit": "nit",
+    "devmon": "devmon",
     "snit": "snit"
   },
   "repository": {

@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+const fs=require("fs");
+const { spawn } = require('node:child_process');
+console.log("Development monitor");
+var child=null;
+function launch() {
+  child=spawn("nit",["paco.js"],{
+    cwd:"../paco/",
+    stdio:"inherit"
+  });
+  child.on('close', function(code) {
+      //Here you can get the exit code of the script
+      console.log('closing code: ' + code);
+      if(code>0) process.exit(1);
+      // console.log('Full output of script: ',scriptOutput);
+      launch();
+  });
+}
+fs.watchFile("paco.js",{
+  bigint:false,
+  interval:500
+},()=>{
+  console.log("file changed=>reload!")
+  if(child) {
+    child.kill();
+    // process.exit(1)
+  }
+});
+launch();
+// console.log("output:",child.output.toString());
+// console.log("stdout:",child.stdout);
+// console.log("stderr:",child.stderr);
+// child.kill(child.pid);
+console.log("terminated.")

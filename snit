@@ -1,3 +1,4 @@
 #!/bin/bash
 #reload script on change, customize to watch tree or other stuff
+echo DEPRECATED, use devmon instead
 nodemon -I -x nit $*
