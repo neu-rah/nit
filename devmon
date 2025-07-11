@@ -14,26 +14,37 @@ function launch() {
     stdio:"inherit"
   });
   child.on('close', function(code) {
-      //Here you can get the exit code of the script
-      console.log('closing code: ' + code);
-      if(code>0) process.exit(code);
-      // console.log('Full output of script: ',scriptOutput);
-      launch();
+    if(code>0) process.exit(code);
+    if(code) launch();
   });
 }
-fs.watchFile(target,{
+function update(eventType,filename) {
+  for(ext of [".js",".json",".ts",".xml"]) {
+    if(filename.endsWith(ext)) {
+      // console.log(eventType,filename);
+      if(child) child.kill();
+      launch();
+      break;
+    }
+  }
+}
+console.log("watching folder:",process.cwd())
+fs.watch(process.cwd()+"",{
+    bigint:false,
+    interval:500
+  }, update);
+
+console.log("watching folder:",process.cwd()+"/src")
+fs.watch(process.cwd()+"/src",{
+    bigint:false,
+    // recursive:true,//not on linux
+    interval:500
+  }, update);
+
+/*fs.watchFile(target,{//already catched by main folder
   bigint:false,
   interval:500
-},()=>{
-  console.log("file changed=>reload!")
-  if(child) {
-    child.kill();
-    // process.exit(1)
-  }
-});
+},()=>child&&child.kill());*/
+
 launch();
-// console.log("output:",child.output.toString());
-// console.log("stdout:",child.stdout);
-// console.log("stderr:",child.stderr);
-// child.kill(child.pid);
-console.log("terminated.")
+console.log("ready...")

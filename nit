@@ -12,8 +12,8 @@ stdin.setEncoding( 'utf8' );
 stdin.on( 'data',function( key ) {if ( key === '\u0003' ) process.exit();});
 
 var info = require('./package.json');
-console.log("-= nit tool "+info.version+" =-");
 var cwd=process.cwd();
+console.log("**nit** tool version:",info.version,"cwd:",cwd);
 var fs=require("fs");
 var target=process.argv.slice(2).join(" ");
 if(!target) {
